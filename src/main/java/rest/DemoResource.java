@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import utils.EMF_Creator;
-import utils.ExternalApi;
+import utils.ExternalWeatherApi;
 
 /**
  * @author lam@cphbusiness.dk
@@ -25,7 +25,7 @@ import utils.ExternalApi;
 public class DemoResource {
 
     private static EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.CREATE);
-    private final ExternalApi EX_API = new ExternalApi();
+    private final ExternalWeatherApi EX_API = new ExternalWeatherApi();
     private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     @Context
     private UriInfo context;
