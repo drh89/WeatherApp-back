@@ -1,21 +1,21 @@
 
 package dto;
 
-public class CityDto {
+public class CityDTO {
     
     private String title;
     private String location_type;
     private int woeid;
     private String latt_long;
     
-    public CityDto(String title, String location_type, int woeid, String latt_long){
+    public CityDTO(String title, String location_type, int woeid, String latt_long){
         this.title = title;
         this.location_type = location_type;
         this.woeid = woeid;
         this.latt_long = latt_long;
     }
 
-    public CityDto() {
+    public CityDTO() {
     }
     
     public String getTitle() {

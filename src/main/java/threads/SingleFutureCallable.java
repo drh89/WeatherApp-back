@@ -23,10 +23,13 @@ import java.util.concurrent.Future;
  */
 public class SingleFutureCallable {
     
-    private final ExecutorService exService = Executors.newCachedThreadPool();
+    
+    public SingleFutureCallable(){
+        
+    }
     
     public String run(String url) throws InterruptedException, ExecutionException{
-        
+        final ExecutorService exService = Executors.newSingleThreadExecutor();
         final Future<String> callFuture = exService.submit(new SingleFutureCallable().new CallableThread(url));
         final String callVal = callFuture.get();
         exService.shutdown();
@@ -56,10 +59,10 @@ public class SingleFutureCallable {
             if(scan.hasNext()){
                 response = scan.nextLine();
             }
-            Gson gson = new Gson();
-            String result = gson.fromJson(response, JsonObject.class).toString();
+//            Gson gson = new Gson();
+//            String result = gson.fromJson(response, JsonObject.class).toString();
             scan.close();
-            return result;
+            return response;
         }
         
     }
