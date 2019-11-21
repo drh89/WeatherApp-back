@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class AllWeatherDTO {
     
-    private List<WeatherDTO> allWeather = new ArrayList();
+    private List<WeatherDTO> consolidated_weather = new ArrayList();
 
-    public List<WeatherDTO> getAllWeather() {
-        return allWeather;
+    public List<WeatherDTO> getConsolidated_weather() {
+        return consolidated_weather;
     }
     
     public AllWeatherDTO(){
