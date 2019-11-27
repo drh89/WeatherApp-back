@@ -2,11 +2,9 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dto.AllWeatherDTO;
 import dto.CityDTO;
 import dto.WeatherDTO;
 import utils.EMF_Creator;
-import facades.FacadeExample;
 import facades.WeatherFacade;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -17,7 +15,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import threads.SingleFutureCallable;
 
 //Todo Remove or change relevant parts before ACTUAL use
 @Path("weather")
@@ -60,10 +57,10 @@ public class WeatherResource {
     }
 
     @GET
-    @Path("/longlat/{longLat}")
+    @Path("/latlong/{latLong}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getWeatherByLongLat(@PathParam("longLat") String longLat) throws InterruptedException, ExecutionException{
-        List<WeatherDTO> allWeather = FACADE.getWeatherByLongLat(longLat);
+    public Response getWeatherByLatLong(@PathParam("latLong") String latLong) throws InterruptedException, ExecutionException{
+        List<WeatherDTO> allWeather = FACADE.getWeatherByLatLong(latLong);
         return Response.ok().entity(GSON.toJson(allWeather)).build();
         
     }
