@@ -9,7 +9,13 @@ public class ExternalWeatherApi {
     
     //Path parameter: int (woeid from above). Will return weatherinfo for next five days. 
     private final String metaWeatherDataByWoeid = "https://www.metaweather.com/api/location/";
+    
+    private final String metaWeatherLongLat = "https://www.metaweather.com/api/location/search/?lattlong=";
 
+    public String getMetaWeatherLongLat() {
+        return metaWeatherLongLat;
+    }
+    
     public String getMetaCityData() {
         return metaCityData;
     }

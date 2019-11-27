@@ -52,12 +52,23 @@ public class WeatherResource {
     @GET
     @Path("/fivedays/{city}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getFiveDaysWeather(@PathParam("city") String city) throws InterruptedException, ExecutionException{
-       List<WeatherDTO> allWeather =  FACADE.getWeatherByCity(city);
-       
-       return Response.ok().entity(GSON.toJson(allWeather)).build();
-       
+    public Response getFiveDaysWeather(@PathParam("city") String city) throws InterruptedException, ExecutionException {
+        List<WeatherDTO> allWeather = FACADE.getWeatherByCity(city);
+
+        return Response.ok().entity(GSON.toJson(allWeather)).build();
+
     }
+
+    @GET
+    @Path("/longlat/{longLat}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response getWeatherByLongLat(@PathParam("longLat") String longLat) throws InterruptedException, ExecutionException{
+        List<WeatherDTO> allWeather = FACADE.getWeatherByLongLat(longLat);
+        return Response.ok().entity(GSON.toJson(allWeather)).build();
+        
+    }
+    
+
 
 
 }

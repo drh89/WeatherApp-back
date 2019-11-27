@@ -35,8 +35,16 @@ public class WeatherFacade {
     
     public List<WeatherDTO> getWeatherByCity(String cityname) throws InterruptedException, ExecutionException{
         AllWeatherDTO allWeather = GSON.fromJson(THREAD.run(EWA.getMetaWeatherDataByWoeid() + getCityInfo(cityname).getWoeid()), AllWeatherDTO.class);
-        System.out.println(allWeather.getConsolidated_weather());
+        
         return allWeather.getConsolidated_weather();
+    }
+    
+    public List<WeatherDTO> getWeatherByLongLat(String longLat) throws InterruptedException, ExecutionException{
+        String temp = THREAD.run(EWA.getMetaWeatherLongLat() + longLat);
+        
+        CityDTO[] res = GSON.fromJson(temp, CityDTO[].class);
+        CityDTO cityInfo = res[0];
+        return getWeatherByCity(cityInfo.getTitle());
     }
 
    

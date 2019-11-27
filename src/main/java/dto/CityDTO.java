@@ -7,6 +7,7 @@ public class CityDTO {
     private String location_type;
     private int woeid;
     private String latt_long;
+    private String distance;
     
     public CityDTO(String title, String location_type, int woeid, String latt_long){
         this.title = title;
@@ -17,6 +18,16 @@ public class CityDTO {
 
     public CityDTO() {
     }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+    
+    
     
     public String getTitle() {
         return title;
